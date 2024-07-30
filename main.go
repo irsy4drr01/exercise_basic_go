@@ -2,24 +2,25 @@ package main
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/irsy4drr01/basic_go-1/modules"
 )
 
 func main() {
 	// exported dan unexported func
-	sumResult, timesResult := modules.Sum(2, 3)
-	fmt.Println(sumResult, timesResult)
+	// sumResult, timesResult := modules.Sum(2, 3)
+	// fmt.Println(sumResult, timesResult)
 
 	// defer dan exit
-	// defer modules.CloseDbConnection()
-	// result, error := modules.QueryGetUser(false)
-	// if error != nil {
-	// 	os.Exit(1)
-	// } else {
-	// 	fmt.Println(result)
-	// }
-	// fmt.Println("get data user")
+	defer modules.CloseDbConnection()
+	result, error := modules.QueryGetUser(false)
+	if error != nil {
+		os.Exit(1)
+	} else {
+		fmt.Println(result)
+	}
+	fmt.Println("get data user")
 
 	// var product1 modules.Product
 	// product1.Name = "Indomie"
