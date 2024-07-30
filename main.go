@@ -1,11 +1,6 @@
 package main
 
-import (
-	"fmt"
-	"os"
-
-	"github.com/irsy4drr01/basic_go-1/modules"
-)
+import "github.com/irsy4drr01/basic_go-1/modules"
 
 func main() {
 	// exported dan unexported func
@@ -13,14 +8,18 @@ func main() {
 	// fmt.Println(sumResult, timesResult)
 
 	// defer dan exit
-	defer modules.CloseDbConnection()
-	result, error := modules.QueryGetUser(false)
-	if error != nil {
-		os.Exit(1)
-	} else {
-		fmt.Println(result)
-	}
-	fmt.Println("get data user")
+	// defer modules.CloseDbConnection()
+	// result, error := modules.QueryGetUser(false)
+	// if error != nil {
+	// 	os.Exit(1)
+	// } else {
+	// 	fmt.Println(result)
+	// }
+	// fmt.Println("get data user")
+
+	// pointer
+	modules.Pointer()
+	modules.NoPointer()
 
 	// var product1 modules.Product
 	// product1.Name = "Indomie"
