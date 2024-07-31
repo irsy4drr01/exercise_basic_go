@@ -1,6 +1,10 @@
 package main
 
-import "github.com/irsy4drr01/basic_go-1/modules"
+import (
+	"fmt"
+
+	"github.com/irsy4drr01/basic_go-1/modules"
+)
 
 func main() {
 	// exported dan unexported func
@@ -18,28 +22,54 @@ func main() {
 	// fmt.Println("get data user")
 
 	// pointer
-	modules.Pointer()
-	modules.NoPointer()
+	// modules.Pointer()
+	// modules.NoPointer()
 
-	// var product1 modules.Product
-	// product1.Name = "Indomie"
-	// product1.Price = 30000
-	// product1.Image = "indomie.png"
-	// fmt.Println(product1.GetName())
+	// struct
+	// struct tanpa menggunakan service
+	// menampilkan struct biasa
+	fmt.Println("STRUCT BIASA")
+	var product1 modules.Product
+	product1.Name = "Indomie"
+	product1.Price = 30000
+	product1.Image = "indomie.png"
+	fmt.Println(product1.GetName())
+	fmt.Println()
 
-	// products := []modules.Product{
-	// 	{
-	// 		Name:  "Indomie",
-	// 		Price: 30000,
-	// 		Image: "indomie.png",
-	// 	},
-	// 	{
-	// 		Name:  "Coca Cola",
-	// 		Price: 5000,
-	// 		Image: "coca-cola.png",
-	// 	},
-	// }
-	// for _, product := range products {
-	// 	fmt.Println(product.Name)
-	// }
+	// menampilkan struct dengan objek
+	fmt.Println("STRUCT DENGAN OBJEK")
+	products := []modules.Product{
+		{
+			Name:  "Indomie",
+			Price: 30000,
+			Image: "indomie.png",
+		},
+		{
+			Name:  "Coca Cola",
+			Price: 5000,
+			Image: "coca-cola.png",
+		},
+	}
+	for _, product := range products {
+		fmt.Println(product.Name)
+	}
+	fmt.Println()
+
+	// struct dengan menggunakan service
+	fmt.Println("STRUCT DENGAN MENGGUNAKAN SERVICE")
+
+	productService := modules.Product{
+		Name:  "Basko",
+		Price: 15000,
+		Image: "bakso.png",
+	}
+	productService.Get()
+	productService.Create()
+
+	userService := modules.User{
+		Name: "Andi",
+		Age:  25,
+	}
+	userService.Get()
+	userService.Create()
 }
